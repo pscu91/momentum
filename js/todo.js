@@ -2,6 +2,7 @@ const toDoForm = document.querySelector('#todo-form');
 const toDoInput = toDoForm.querySelector('input');
 const toDoList = document.querySelector('#todo-list');
 
+const HIDDEN_CLASSNAME = 'hidden';
 const TODOS_KEY = 'todos';
 
 let toDos = [];
@@ -16,6 +17,9 @@ function delToDo(event) {
   console.log(parentToDoLi.id);
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(parentToDoLi.id));
   saveToDos();
+  if (savedToDos === null) {
+    toDoList.classList.add(HIDDEN_CLASSNAME);
+  }
 }
 
 function paintToDo(newToDo) {

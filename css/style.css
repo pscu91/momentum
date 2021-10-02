@@ -54,7 +54,7 @@ body {
 .bind-container:nth-child(3) form input {
   width: 60%;
   padding: 15px;
-  margin: 10px auto 0;
+  margin: 10px auto;
   border-radius: 10px;
   border: unset;
 }
@@ -67,7 +67,7 @@ body {
   padding-left: unset;
   padding: 15px 50px 0;
   width: 75%;
-  margin-top: 25px;
+  margin-top: 15px;
   max-height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
