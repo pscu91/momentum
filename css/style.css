@@ -40,6 +40,7 @@ body {
 
 .bind-container:nth-child(2) {
   padding: 30px 50px;
+  position: relative;
 }
 
 .bind-container:nth-child(2) form {
