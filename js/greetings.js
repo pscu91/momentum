@@ -2,9 +2,15 @@ const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 const greeting = document.querySelector('#greeting');
 const toDoListContainer = document.querySelector('.bind-container.hidden');
+const logOutButton = document.querySelector('#logout');
 
 const HIDDEN_CLASSNAME = 'hidden';
 const USERNAME_KEY = 'username';
+
+function onLogOutSubmit() {
+  localStorage.clear();
+  window.location.reload();
+}
 
 function onLoginSubmit(event) {
   // event.preventDefault();
@@ -17,6 +23,7 @@ function paintGreetings(username) {
   greeting.innerText = `안녕! ${username}, 체크리스트를 적어봐.`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
   toDoListContainer.classList.remove(HIDDEN_CLASSNAME);
+  logOutButton.classList.remove(HIDDEN_CLASSNAME);
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
@@ -28,3 +35,4 @@ if (savedUsername === null) {
 }
 
 loginForm.addEventListener('submit', onLoginSubmit);
+logOutButton.addEventListener('click', onLogOutSubmit);

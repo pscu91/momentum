@@ -129,12 +129,21 @@ body {
 }
 
 .bind-container:nth-child(3) ul li button,
-#all-del {
+#all-del,
+#logout {
   background: #fff;
   color: #000;
   padding: 5px 10px;
   border-radius: 5px;
   border: unset;
+}
+
+#logout {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 10px 25px;
+  border-radius: 15px;
 }
 
 #all-del {
@@ -152,7 +161,8 @@ body {
   transform: translateY(-50%);
 }
 .bind-container:nth-child(3) button:hover,
-#all-del:hover {
+#all-del:hover,
+#logout:hover {
   cursor: pointer;
   background: red;
   color: #fff;
