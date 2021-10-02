@@ -8,8 +8,3 @@ const bgImage = document.createElement('img');
 bgImage.src = `img/${chosenBackground}`;
 
 bodyStyle.backgroundImage = "url('" + bgImage.src + "')";
-bodyStyle.backgroundSize = 'cover';
-bodyStyle.backgroundRepeat = 'no-repeat';
-bodyStyle.backgroundPosition = 'center';
-bodyStyle.minHeight = '100vh';
-bodyStyle.overflowY = 'hidden';

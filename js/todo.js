@@ -2,7 +2,6 @@ const toDoForm = document.querySelector('#todo-form');
 const toDoInput = toDoForm.querySelector('input');
 const toDoList = document.querySelector('#todo-list');
 
-const HIDDEN_CLASSNAME = 'hidden';
 const TODOS_KEY = 'todos';
 
 let toDos = [];
@@ -12,12 +11,13 @@ function saveToDos() {
 }
 
 function delToDo(event) {
+  event.preventDefault();
   const parentToDoLi = event.target.parentElement;
   parentToDoLi.remove();
   console.log(parentToDoLi.id);
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(parentToDoLi.id));
   saveToDos();
-  if (savedToDos === null) {
+  if (toDoList.childElementCount === 0) {
     toDoList.classList.add(HIDDEN_CLASSNAME);
   }
 }
@@ -47,7 +47,7 @@ function handleToDoSubmit(event) {
   toDos.push(newToDoObj);
   paintToDo(newToDoObj);
   saveToDos();
-  toDoList.classList.remove('hidden');
+  toDoList.classList.remove(HIDDEN_CLASSNAME);
 }
 
 toDoForm.addEventListener('submit', handleToDoSubmit);
@@ -59,5 +59,9 @@ if (savedToDos !== null) {
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
 } else {
-  toDoList.classList.add('hidden');
+  toDoList.classList.add(HIDDEN_CLASSNAME);
+}
+
+if (savedToDos === '[]') {
+  toDoList.classList.add(HIDDEN_CLASSNAME);
 }
