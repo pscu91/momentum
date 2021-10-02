@@ -14,7 +14,7 @@ function onLoginSubmit(event) {
 }
 
 function paintGreetings(username) {
-  greeting.innerText = `안녕! ${username}, 오늘은 뭐할꺼야?`;
+  greeting.innerText = `안녕! ${username}, 체크리스트를 적어봐.`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
   toDoListContainer.classList.remove(HIDDEN_CLASSNAME);
 }

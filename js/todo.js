@@ -1,8 +1,10 @@
 const toDoForm = document.querySelector('#todo-form');
 const toDoInput = toDoForm.querySelector('input');
 const toDoList = document.querySelector('#todo-list');
+const allDel = document.querySelector('#all-del');
 
 const TODOS_KEY = 'todos';
+const INPUT_PADDING_RIGHT = 'inputPaddingRight';
 
 let toDos = [];
 
@@ -19,6 +21,9 @@ function delToDo(event) {
   saveToDos();
   if (toDoList.childElementCount === 0) {
     toDoList.classList.add(HIDDEN_CLASSNAME);
+  } else if (toDoList.childElementCount < 4) {
+    allDel.classList.add(HIDDEN_CLASSNAME);
+    toDoForm.classList.remove(INPUT_PADDING_RIGHT);
   }
 }
 
@@ -38,16 +43,24 @@ function paintToDo(newToDo) {
 
 function handleToDoSubmit(event) {
   event.preventDefault();
-  const newToDo = toDoInput.value;
-  toDoInput.value = '';
-  const newToDoObj = {
-    text: newToDo,
-    id: Date.now(),
-  };
-  toDos.push(newToDoObj);
-  paintToDo(newToDoObj);
-  saveToDos();
-  toDoList.classList.remove(HIDDEN_CLASSNAME);
+  if (toDoInput.value !== '') {
+    const newToDo = toDoInput.value;
+    toDoInput.value = '';
+    const newToDoObj = {
+      text: newToDo,
+      id: Date.now(),
+    };
+    toDos.push(newToDoObj);
+    paintToDo(newToDoObj);
+    saveToDos();
+    toDoList.classList.remove(HIDDEN_CLASSNAME);
+    if (toDoList.childElementCount > 3) {
+      allDel.classList.remove(HIDDEN_CLASSNAME);
+      toDoForm.classList.add(INPUT_PADDING_RIGHT);
+    }
+  } else {
+    alert('내용을 적지 않으셨어요.');
+  }
 }
 
 toDoForm.addEventListener('submit', handleToDoSubmit);
@@ -64,4 +77,19 @@ if (savedToDos !== null) {
 
 if (savedToDos === '[]') {
   toDoList.classList.add(HIDDEN_CLASSNAME);
+}
+
+function handleAllDelSubmit() {
+  localStorage.removeItem(TODOS_KEY);
+  toDoList.classList.add(HIDDEN_CLASSNAME);
+  allDel.classList.add(HIDDEN_CLASSNAME);
+  toDoForm.classList.remove(INPUT_PADDING_RIGHT);
+  window.location.reload();
+}
+
+allDel.addEventListener('click', handleAllDelSubmit);
+
+if (toDoList.childElementCount > 3) {
+  allDel.classList.remove(HIDDEN_CLASSNAME);
+  toDoForm.classList.add(INPUT_PADDING_RIGHT);
 }
