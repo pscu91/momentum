@@ -8,28 +8,38 @@
     <title>Momentum App</title>
   </head>
   <body>
-    <h2 id="clock">00:00</h2>
-    <form id="login-form" class="hidden">
-      <input
-        required
-        maxlength="15"
-        type="text"
-        placeholder="what is your name?"
-      />
-      <input type="submit" value="Log In" />
-    </form>
-    <h1 id="greeting" class="hidden"></h1>
-    <form id="todo-form">
-      <input type="text" placeholder="할 일을 적고, 엔터키를 입력하세요." />
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
-      <span></span>
-      <span></span>
+    <div class="bind-container">
+      <h2 id="clock">00:00</h2>
+      <div id="weather">
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div id="weather">
-      <span></span>
-      <span></span>
+    <div class="bind-container">
+      <form id="login-form" class="hidden">
+        <input
+          required
+          maxlength="15"
+          type="text"
+          placeholder="what is your name?"
+        />
+        <input type="submit" value="Log In" />
+      </form>
+      <h1 id="greeting" class="hidden"></h1>
+    </div>
+    <div class="bind-container hidden">
+      <form id="todo-form">
+        <input type="text" placeholder="할 일을 적고, 엔터키를 입력하세요." />
+      </form>
+      <ul id="todo-list"></ul>
+    </div>
+    <div class="bind-container">
+      <div id="quote">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+      
     </div>
     <script src="js/greetings.js"></script>
     <script src="js/clock.js"></script>

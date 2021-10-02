@@ -1,46 +1,47 @@
 const quotes = [
   {
-    quote: '가장 빛나는 레뷰를 보여준 분에게는 톱스타로 가는 길이 열릴 겁니다.',
-    author: '기린',
-  },
-  {
-    quote: '무대에 가득 열린 과실, 하지만 모두 무르니까 누군가가 지켜 줘야 해.',
-    author: '다이바 나나',
-  },
-  {
-    quote: '반짝이는 무대도 너무 좋지만, 반짝이는 당신은 더 좋아.',
-    author: '츠유자키 마히루',
+    quote: '피할수 없으면 즐겨라!',
+    author: '로버트 엘리엇',
   },
   {
     quote:
-      '나나는 모두의 바나나 같네, 달콤하고 부드럽고 영양 만점! 어깨 결림까지 풀어 주잖아.',
-    author: '아이죠 카렌',
+      '진정으로 웃으려면 고통을 참아야하며 , 나아가 고통을 즐길 줄 알아야 해.',
+    author: '찰리 채플린',
   },
   {
     quote:
-      '작은 별을 따면 당신은 작은 행복을 손에 넣고, 큰 별을 따면 당신은 큰 부를 손에 넣죠.',
-    author: '스타라이트',
+      '좋은 성과를 얻으려면 한 걸음 한 걸음이 힘차고 충실하지 않으면 안 된다.',
+    author: '단테',
   },
   {
     quote:
-      '스타라이트, 이것은 저 멀리 떨어진 별의 먼 옛날의 아득한 미래의 이야기.',
-    author: '스타라이트',
+      '네 믿음은 네 생각이 된다. 네 생각은 네 말이 된다. 네 말은 네 행동이 된다. 네 행동은 네 습관이 된다.',
+    author: '간디',
   },
   {
-    quote: '결국 스타라이트는 비극, 결말은 이별이야.',
-    author: '카구라 히카리',
+    quote: '1퍼센트의 가능성, 그것이 나의 길이다.',
+    author: '나폴레옹',
   },
   {
-    quote: '오늘 밤 반짝임을 당신께!',
-    author: '텐도 마야',
+    quote: '꿈을 계속 간직하고 있으면 반드시 실현할 때가 온다.',
+    author: '괴테',
   },
   {
-    quote: '카구라 히카리, 저 애도 내 무대에 필요해졌어요.',
-    author: '다이바 나나',
+    quote: '화가 날 때는 100까지 세라. 최악일 때는 욕설을 퍼부어라.',
+    author: '마크 트웨인',
   },
   {
-    quote: '모두를 스타라이트 하겠습니다!',
-    author: '아이죠 카렌',
+    quote: '고개 숙이지 마십시오. 세상을 똑바로 정면으로 바라보십시오.',
+    author: '헬렌 켈러',
+  },
+  {
+    quote:
+      '고난의 시기에 동요하지 않는 것, 이것은 진정 칭찬받을 만한 뛰어난 인물의 증거다.',
+    author: '베토벤',
+  },
+  {
+    quote: '당신이 할수 있다고 믿든, 할수 없다고 믿든, 믿는 대로 될것이다.',
+    author: '헨리 포드',
   },
 ];
 
@@ -49,5 +50,5 @@ const author = document.querySelector('#quote span:last-child');
 
 const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-quote.innerText = `"${todayQuote.quote}"`;
-author.innerText = `- ${todayQuote.author}`;
+quote.innerText = `" ${todayQuote.quote} "`;
+author.innerText = `by ${todayQuote.author}`;

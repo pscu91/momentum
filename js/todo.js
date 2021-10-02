@@ -25,7 +25,7 @@ function paintToDo(newToDo) {
   span.innerText = newToDo.text;
 
   const delButton = document.createElement('button');
-  delButton.innerText = '❌';
+  delButton.innerText = '삭제';
   delButton.addEventListener('click', delToDo);
   li.appendChild(span);
   li.appendChild(delButton);
@@ -43,6 +43,7 @@ function handleToDoSubmit(event) {
   toDos.push(newToDoObj);
   paintToDo(newToDoObj);
   saveToDos();
+  toDoList.classList.remove('hidden');
 }
 
 toDoForm.addEventListener('submit', handleToDoSubmit);
@@ -53,4 +54,6 @@ if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
+} else {
+  toDoList.classList.add('hidden');
 }
